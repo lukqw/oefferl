@@ -1,0 +1,15 @@
+name: git pull on digital ocean thyme
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.IP }}
+        username: ${{ secrets.SSHUSER }}
+        key : ${{ secrets.PRIVKEY }}
+        script: "cd /var/www/html/ && ./pullOefferl.sh"
