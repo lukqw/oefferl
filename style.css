@@ -1,6 +1,6 @@
 body {
-    height: 320px;
-    width: 480px;
+    height: 480px;
+    width: 320px;
     margin: 1px;
 }
 .list {
@@ -12,7 +12,6 @@ body {
     flex-direction: row;
 }
 .square {
-    border: 1px solid;
     border-radius: 10px;
     display: flex;
     align-items: center;
