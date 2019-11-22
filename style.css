@@ -10,6 +10,7 @@ body {
 .list-elem {
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid;
 }
 .square {
     border-radius: 10px;
@@ -20,17 +21,14 @@ body {
     height: 86px;
     width: 86px;
     color: white;
-    margin: 10px;
+    margin: 10px 10px 0 10px;
 }
 .direction {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
-    width: 86px;
-    height: 86px;
     flex-direction: column;
-
+    margin: 10px;
 }
 .wide {
     flex-grow: 1;
