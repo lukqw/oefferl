@@ -45,7 +45,7 @@
                 }, 5000);
             },
             getRequest(line) {
-                this.axios.get('http://localhost:3000', {
+                this.axios.get('', {
                     headers: {
                         'Target-URL': 'http://www.wienerlinien.at/ogd_realtime/monitor?rbl=' + line.rbl
                     }

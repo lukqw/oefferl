@@ -5,6 +5,7 @@ import VueAxios from 'vue-axios'
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+Vue.axios.defaults.baseURL = process.env.VUE_APP_BASE_URL;
 
 new Vue({
   render: h => h(App),

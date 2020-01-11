@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "concurrently --kill-others \"vue-cli-service serve\" \"node server\"",
-    "build": "concurrently --kill-others \"vue-cli-service build\" \"node server\"",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "server": "node server"
   },
   "dependencies": {
     "axios": "^0.19.1",
