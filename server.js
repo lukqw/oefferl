@@ -1,5 +1,4 @@
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
-console.log(process.env.ACCESS_HEADER);
 var express = require('express'),
     request = require('request'),
     app = express();
