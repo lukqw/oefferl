@@ -50,9 +50,7 @@
                         'Target-URL': 'http://www.wienerlinien.at/ogd_realtime/monitor?rbl=' + line.rbl
                     }
                 }).then(response => {
-                        if(response.length > 0) {
-                            line.countdown = response.data.data.monitors[0].lines[0].departures.departure[0].departureTime.countdown;
-                        }
+                    line.countdown = response.data.data.monitors[0].lines[0].departures.departure[0].departureTime.countdown;
                     }
                 );
             }
