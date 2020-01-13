@@ -19,14 +19,14 @@
                     {
                         name: "60",
                         direction: "Westbahnhof",
-                        countdown: 0,
+                        countdowns: [],
                         type: "tram",
                         rbl: 1633
                     },
                     {
                         name: "62",
                         direction: "Karlsplatz",
-                        countdown: 0,
+                        countdowns: [],
                         type: "tram",
                         rbl: 1738
                     }
@@ -50,7 +50,9 @@
                         'Target-URL': 'http://www.wienerlinien.at/ogd_realtime/monitor?rbl=' + line.rbl
                     }
                 }).then(response => {
-                    line.countdown = response.data.data.monitors[0].lines[0].departures.departure[0].departureTime.countdown;
+                    line.countdowns = response.data.data.monitors[0].lines[0].departures.departure
+                        .filter(departure => departure.departureTime.countdown !== 0)
+                        .map(departure => departure.departureTime.countdown).splice(0,3);
                     }
                 );
             }

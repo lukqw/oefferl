@@ -11,14 +11,18 @@
         <div class="d-flex w-33">
         </div>
         <div class="d-flex w-33 justify-content-center align-items-center">
-            {{line.countdown}} {{line.countdown === 1 ? 'Minute' : 'Minutes'}}
+            <div class="d-flex flex-column">
+                <div v-for="countdown in line.countdowns" v-bind:key="countdown">
+                    {{countdown}} {{countdown === 1 ? 'Minute' : 'Minutes'}}
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "listEntry",
+        name: "ListEntry",
         props: {
             line: Object
         }
