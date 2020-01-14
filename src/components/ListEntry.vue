@@ -1,18 +1,18 @@
 <template>
-    <div class="d-flex border-bottom-1 justify-content-between">
+    <div class="d-flex justify-content-between" v-if="line.countdowns.length !== 0">
         <div class="d-flex w-33 flex-column justify-content-center align-items-center">
             <div class="square" :class="line.type">
                 {{line.name}}
             </div>
             <div class="m-10px">
-                {{line.direction}}
+                {{line.towards}}
             </div>
         </div>
         <div class="d-flex w-33">
         </div>
         <div class="d-flex w-33 justify-content-center align-items-center">
             <div class="d-flex flex-column">
-                <div v-for="countdown in line.countdowns" v-bind:key="countdown">
+                <div class="text-align-right" v-for="countdown in line.countdowns" v-bind:key="countdown">
                     {{countdown}} {{countdown === 1 ? 'Minute' : 'Minutes'}}
                 </div>
             </div>
@@ -30,10 +30,12 @@
 </script>
 
 <style scoped>
-    .tram {
+    .ptTram {
         background-color: #e92730;
     }
-
+    .ptBusNight {
+        background-color: #001c7e;
+    }
     .u4 {
         background-color: #319f49;
     }

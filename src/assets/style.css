@@ -16,6 +16,12 @@
 .align-items-center {
     align-items: center;
 }
+.text-center {
+    text-align: center;
+}
+.text-align-right {
+    text-align: right;
+}
 .flex-grow {
     flex-grow: 1;
 }

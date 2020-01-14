@@ -17,17 +17,11 @@
             return {
                 lines: [
                     {
-                        name: "60",
-                        direction: "Westbahnhof",
                         countdowns: [],
-                        type: "tram",
                         rbl: 1633
                     },
                     {
-                        name: "62",
-                        direction: "Karlsplatz",
                         countdowns: [],
-                        type: "tram",
                         rbl: 1738
                     }
                 ]
@@ -50,11 +44,16 @@
                         'Target-URL': 'http://www.wienerlinien.at/ogd_realtime/monitor?rbl=' + line.rbl
                     }
                 }).then(response => {
-                    line.countdowns = response.data.data.monitors[0].lines[0].departures.departure
-                        .filter(departure => departure.departureTime.countdown !== 0)
-                        .map(departure => departure.departureTime.countdown).splice(0,3);
+                    if (response.data.data.monitors.length > 0) {
+                        line.name = response.data.data.monitors[0].lines[0].name;
+                        line.towards = response.data.data.monitors[0].lines[0].towards.split(',')[0];
+                        line.type = response.data.data.monitors[0].lines[0].type;
+                        line.countdowns = response.data.data.monitors[0].lines[0].departures.departure
+                            .filter(departure => departure.departureTime.countdown !== 0)
+                            .map(departure => departure.departureTime.countdown).splice(0, 3);
+                        line.trafficjam = response.data.data.monitors[0].lines[0].trafficjam;
                     }
-                );
+                });
             }
         }
     }
