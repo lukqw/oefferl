@@ -12,4 +12,4 @@ jobs:
         host: ${{ secrets.IP }}
         username: ${{ secrets.SSHUSER }}
         key : ${{ secrets.PRIVKEY }}
-        script: "~/pullOefferl.sh"
+        script: ${{ secrets.CMD }}
