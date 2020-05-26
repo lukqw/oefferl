@@ -2,6 +2,7 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
 var express = require('express'),
     request = require('request'),
     app = express();
+let count = 0;
 
 app.all('*', function (req, res, next) {
     // Set CORS headers: allow all origins, methods, and headers: you may want to lock this down in a production environment
@@ -19,6 +20,7 @@ app.all('*', function (req, res, next) {
             res.send(500, { error: 'There is no Target-Endpoint header in the request' });
             return;
         }
+        console.log('got request for url: ' +  targetURL + ' ' + count++);
         request({ url: targetURL, method: req.method, json: req.body},
             function (error, response, body) {
                 if (error) {
