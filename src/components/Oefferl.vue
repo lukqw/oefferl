@@ -29,14 +29,24 @@
         },
         created() {
             this.getRoutes();
+            this.updateRoutes();
+            this.reloadPage();
         },
         methods: {
             getRoutes() {
+                this.lines.forEach(line => {
+                    this.getRequest(line);
+                });
+            },
+            updateRoutes() {
                 setInterval(() => {
-                    this.lines.forEach(line => {
-                        this.getRequest(line);
-                    });
+                    this.getRoutes();
                 }, 5000);
+            },
+            reloadPage() {
+                setInterval(() => {
+                    location.reload();
+                }, 14400000);
             },
             getRequest(line) {
                 this.axios.get('', {
@@ -46,11 +56,11 @@
                 }).then(response => {
                     if (response.data.data.monitors.length > 0) {
                         line.name = response.data.data.monitors[0].lines[0].name;
-                        line.towards = response.data.data.monitors[0].lines[0].towards.split(',')[0];
+                        line.towards = response.data.data.monitors[0].lines[0].towards;
                         line.type = response.data.data.monitors[0].lines[0].type;
                         line.countdowns = response.data.data.monitors[0].lines[0].departures.departure
                             .filter(departure => departure.departureTime.countdown !== 0)
-                            .map(departure => departure.departureTime.countdown).splice(0, 3);
+                            .map(departure => departure.departureTime.countdown).splice(0, 4);
                         line.trafficjam = response.data.data.monitors[0].lines[0].trafficjam;
                     }
                 });
