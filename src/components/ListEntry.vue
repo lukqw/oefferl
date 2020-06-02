@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="d-flex justify-content-between" v-if="line.countdowns.length !== 0">
+    <div v-if="line.countdowns.length !== 0">
+        <div class="d-flex justify-content-between">
             <div class="d-flex w-33 justify-content-center align-items-center">
                 <Icon :name=line.name :type=line.type />
             </div>
