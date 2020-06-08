@@ -46,7 +46,7 @@
             reloadPage() {
                 setInterval(() => {
                     location.reload();
-                }, 14400000);
+                }, 10800000);
             },
             getRequest(line) {
                 this.axios.get('', {
