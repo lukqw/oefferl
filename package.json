@@ -6,7 +6,7 @@
     "serve": "concurrently --kill-others \"vue-cli-service serve\" \"NODE_ENV=development node server\"",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "server": "NODE_ENV=production node server"
+    "server": "NODE_ENV=production.local node server"
   },
   "dependencies": {
     "axios": "^0.19.1",
