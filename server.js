@@ -7,7 +7,7 @@ let count = 0;
 app.all('*', function (req, res, next) {
     // Set CORS headers: allow all origins, methods, and headers: you may want to lock this down in a production environment
     let originHeader = process.env.ACCESS_HEADER;
-    let appId = process.env.OMW_APP_ID;
+    let appId = process.env.OWM_APP_ID;
     res.header("Access-Control-Allow-Origin", originHeader);
     res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
