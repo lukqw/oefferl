@@ -52,6 +52,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 70px;
   }
   .date {
     margin: 0 2px 5px 2px;

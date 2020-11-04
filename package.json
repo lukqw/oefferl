@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "concurrently --kill-others \"vue-cli-service serve\" \"NODE_ENV=development node server\"",
+    "serve": "concurrently --kill-others \"vue-cli-service serve\" \"NODE_ENV=development.local node server\"",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "server": "NODE_ENV=production.local node server"

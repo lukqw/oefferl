@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column">
+  <div class="d-flex flex-column justify-content-between">
     <Clock/>
     <div v-for="line in lines" :key="line.name">
       <list-entry :line="line">
